@@ -37,7 +37,7 @@
                             <div class="card-block">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <h4 class="text-c-green">290</h4>
+                                        <h4 class="text-c-green"><?= $jml_pengajuan; ?></h4>
                                         <h6 class="text-muted m-b-0">Pengajuan Permintaan</h6>
                                     </div>
                                     <div class="col-4 text-right">
@@ -62,7 +62,7 @@
                             <div class="card-block">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <h4 class="text-c-blue">500</h4>
+                                        <h4 class="text-c-blue"><?= $jml_disetujui; ?></h4>
                                         <h6 class="text-muted m-b-0">Permintaan Diterima</h6>
                                     </div>
                                     <div class="col-4 text-right">
@@ -87,7 +87,7 @@
                             <div class="card-block">
                                 <div class="row align-items-center">
                                     <div class="col-8">
-                                        <h4 class="text-c-red">145</h4>
+                                        <h4 class="text-c-red"><?= $jml_ditolak; ?></h4>
                                         <h6 class="text-muted m-b-0">Permintaan Ditolak</h6>
                                     </div>
                                     <div class="col-4 text-right">

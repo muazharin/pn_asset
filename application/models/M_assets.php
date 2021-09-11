@@ -70,6 +70,10 @@ class M_assets extends CI_Model
 		return $this->db->insert('assets', $data);
 	}
 
+	public function getAllData()
+	{
+		return $this->db->get('assets')->result();
+	}
 	public function getDetail($id)
 	{
 

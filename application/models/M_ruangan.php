@@ -50,6 +50,10 @@ class M_ruangan extends CI_Model
 		return $this->db->insert('ruangan', $data);
 	}
 
+	public function getAllData()
+	{
+		return $this->db->get('ruangan')->result();
+	}
 	public function getDetail($id)
 	{
 		$this->db->where('id_ruangan', $id);
