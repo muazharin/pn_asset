@@ -47,6 +47,25 @@ class Transaksi extends CI_Controller
 			}
 		}
 	}
+	public function laporan()
+	{
+
+		$data['tgl'] = $this->input->post('tgl');
+		// $this->session->set_userdata('tgl', $tgl);
+		// $tgl = $this->session->userdata('tgl');
+		$mpdf = new \Mpdf\Mpdf([
+			'mode' => 'utf-8',
+			'format' => 'A4',
+			'setAutoTopMargin' => 'stretch',
+			'orientation' => 'P'
+		]);
+		$data['laporan'] = $this->M_transaksi->laporan();
+		// $mpdf->SetHTMLHeader('<h4 align="center">LAPORAN BARANG  (' . strtoupper($tgl) . ')</h4>');
+		$mpdf->SetHTMLFooter('<h5 align="left">{DATE j-M-Y H:i:s} - </h5>');
+		$html = $this->load->view('transaksi/laporan', $data, true);
+		$mpdf->WriteHTML($html);
+		$mpdf->Output();
+	}
 
 	public function get_stok()
 	{

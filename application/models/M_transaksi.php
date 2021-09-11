@@ -117,6 +117,20 @@ class M_transaksi extends CI_Model
 		return $this->db->insert('transaksi', $data);
 	}
 
+	public function laporan()
+	{
+		$tgl = $this->input->post('tgl');
+		$format_tgl = date_format(date_create($tgl), 'Y-m');
+		$query = "SELECT *, SUM(transaksi.jml_pengajuan) as jml_pengajuan, SUM(transaksi.jml_disetujui) as jml_disetujui 
+		FROM transaksi 
+		LEFT JOIN assets ON transaksi.id_asset = assets.id_asset 
+		LEFT JOIN satuan ON assets.id_satuan = satuan.id_satuan 
+		WHERE transaksi.date_request LIKE '%$format_tgl%' 
+		GROUP BY transaksi.id_asset 
+		ORDER BY jml_pengajuan DESC";
+		return $this->db->query($query)->result();
+	}
+
 	public function getDetail($id)
 	{
 		$this->db->join('assets', 'transaksi.id_asset = assets.id_asset', 'left');

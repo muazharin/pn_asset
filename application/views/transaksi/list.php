@@ -3,6 +3,8 @@
     line-height: 40px;
 }
 </style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 <div class="pcoded-inner-content">
     <!-- Main-body start -->
     <div class="main-body">
@@ -15,6 +17,21 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>Tabel Transaksi</h5>
+                                <span>&nbsp;</span>
+                                <form target="_blank" action="<?= base_url(); ?>transaksi/laporan" method="post">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="input-group mb-3">
+                                                <input type="text" placeholder="Masukkan tanggal" name="tgl"
+                                                    id="datepicker1" class="form-control" required>
+                                                <div class="input-group-append">
+                                                    <button class="btn waves-effect waves-light btn-primary"
+                                                        type="submit"><i class="icofont icofont-print"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                                 <?php if ($this->session->userdata('role') == '1') { ?>
                                 <a href="<?= base_url(); ?>transaksi/pengajuan">
                                     <button style="float: right;" class="btn waves-effect waves-light btn-primary">
@@ -22,7 +39,7 @@
                                     </button>
                                 </a>
                                 <?php } ?>
-                                <span></span>
+
                             </div>
                             <div class="card-block">
                                 <div class="dt-responsive table-responsive">
@@ -56,8 +73,12 @@
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
 <script type="text/javascript" src="<?= base_url() ?>assets_temp/js/jquery/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(document).ready(function() {
+    $("#datepicker1").datepicker({
+        dateFormat: 'MM-yy',
+    });
     $('#simpletable').DataTable({
         "paging": true,
         "scrollY": true,
@@ -100,6 +121,95 @@ function buttonDelete(id) {
         if (result.isConfirmed) {
             document.location.href = "<?= base_url(); ?>transaksi/hapus/" + id;
         }
+
+
+
+
+
+
+
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 </script>t>
