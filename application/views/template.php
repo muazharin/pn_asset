@@ -240,6 +240,13 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                <li id="Usulan">
+                                    <a href="<?= base_url(); ?>usulan" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="ti-hand-open"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Usulan</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                                 <?php if ($this->session->userdata('role') == '0') { ?>
                                 <li id="Ruangan">
                                     <a href="<?= base_url(); ?>ruangan" class="waves-effect waves-dark">
@@ -292,6 +299,7 @@
                         </div>
                         <!-- Page-header end -->
                         <?= $contents; ?>
+
                     </div>
                 </div>
             </div>
@@ -316,7 +324,8 @@
     <script type="text/javascript" src="<?= base_url() ?>assets_temp/js/SmoothScroll.js"></script>
     <script src="<?= base_url() ?>assets_temp/js/jquery.mCustomScrollbar.concat.min.js "></script>
     <!-- Chart js -->
-    <script type="text/javascript" src="<?= base_url() ?>assets_temp/js/chart.js/Chart.js"></script>
+    <!-- <script type="text/javascript" src="<?= base_url() ?>assets_temp/js/chart.js/Chart.js"></script> -->
+
 
     <!-- amchart js -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
@@ -324,6 +333,7 @@
     <script src="<?= base_url() ?>assets_temp/pages/widget/amchart/serial.js"></script>
     <script src="<?= base_url() ?>assets_temp/pages/widget/amchart/light.js"></script>
     <script src="<?= base_url() ?>assets_temp/pages/widget/amchart/pie.min.js"></script>
+
     <!-- SweetAlert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <sc ript src="https://www.amcharts.com/lib/3/plugins/export/export.min.js">
@@ -368,24 +378,14 @@
             })
         }
         </script>
-
-
-
-
         <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>
-
-
-
-
-
         <!-- menu js -->
         <script src="<?= base_url() ?>assets_temp/js/pcoded.min.js"></script>
         <script src="<?= base_url() ?>assets_temp/js/vertical-layout.min.js "></script>
         <!-- custom js -->
-        <script type="text/javascript" src="<?= base_url() ?>assets_temp/pages/dashboard/custom-dashboard.js"></script>
+        <!-- <script type="text/javascript" src="<?= base_url() ?>assets_temp/pages/dashboard/custom-dashboard.js"></script> -->
         <script type="text/javascript" src="<?= base_url() ?>assets_temp/js/script.js "></script>
 
 </body>
-
 
 </html>

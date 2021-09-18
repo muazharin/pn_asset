@@ -17,12 +17,15 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>Tabel Transaksi</h5>
+                                <?php if ($this->session->userdata('role') == '0') { ?>
                                 <span>&nbsp;</span>
                                 <form target="_blank" action="<?= base_url(); ?>transaksi/laporan" method="post">
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-6">
                                             <div class="input-group mb-3">
                                                 <input type="text" placeholder="Masukkan tanggal" name="tgl"
+                                                    id="datepicker" class="form-control" required>
+                                                <input type="text" placeholder="Masukkan tanggal" name="tgl1"
                                                     id="datepicker1" class="form-control" required>
                                                 <div class="input-group-append">
                                                     <button class="btn waves-effect waves-light btn-primary"
@@ -32,6 +35,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                <?php } ?>
                                 <?php if ($this->session->userdata('role') == '1') { ?>
                                 <a href="<?= base_url(); ?>transaksi/pengajuan">
                                     <button style="float: right;" class="btn waves-effect waves-light btn-primary">
@@ -76,8 +80,11 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(document).ready(function() {
+    $("#datepicker").datepicker({
+        dateFormat: 'dd MM yy',
+    });
     $("#datepicker1").datepicker({
-        dateFormat: 'MM-yy',
+        dateFormat: 'dd MM yy',
     });
     $('#simpletable').DataTable({
         "paging": true,
@@ -121,95 +128,6 @@ function buttonDelete(id) {
         if (result.isConfirmed) {
             document.location.href = "<?= base_url(); ?>transaksi/hapus/" + id;
         }
-
-
-
-
-
-
-
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-</script>t>
+</script>

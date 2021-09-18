@@ -233,12 +233,7 @@ function doConfirm(confirm, id, jml, id_asset) {
         error: function(request) {
             Swal.fire({
                 text: "Maaf, Terjadi kesalahan!",
-
-
-
-
-         
-       icon: "error"
+                icon: "error"
             });
         }
     });

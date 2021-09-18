@@ -9,7 +9,7 @@ class M_assets extends CI_Model
 		$start = $_POST['start'];
 		$length = $_POST['length'];
 		$no = $start + 1;
-
+		$from = $this->input->post('from');
 		if (!empty($_POST['search']['value'])) {
 			$keyword = $_POST['search']['value'];
 			$query = "SELECT a.*, s.* FROM assets a
@@ -30,7 +30,11 @@ class M_assets extends CI_Model
 		foreach ($data_tabel as $hasil) {
 			$row = array();
 			$row[] = $no++;
-			$row[] = strlen($hasil->nama_asset) >= 20 ? substr($hasil->nama_asset, 0, 20) . "..." : $hasil->nama_asset;
+			if ($from == "assets") {
+				$row[] = strlen($hasil->nama_asset) >= 20 ? substr($hasil->nama_asset, 0, 20) . "..." : $hasil->nama_asset;
+			} else {
+				$row[] =  strlen($hasil->nama_asset) >= 20 ? '<label style="color: white;">' . $hasil->id_asset . " | </label>" . substr($hasil->nama_asset, 0, 20) . "..." : '<label style="color: white;">' . $hasil->id_asset . " |  </label>" . $hasil->nama_asset;
+			}
 			$row[] = $hasil->merk;
 			$row[] = $hasil->type;
 			$row[] = $hasil->jml;

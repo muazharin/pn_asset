@@ -14,12 +14,14 @@
                         <!-- Zero config.table start -->
                         <div class="card">
                             <div class="card-header">
-                                <h5>Tabel Asset</h5>
-                                <a href="<?= base_url(); ?>assets/tambah">
+                                <h5>Tabel Usulan</h5>
+                                <?php if ($this->session->userdata('role') == '1') { ?>
+                                <a href="<?= base_url(); ?>usulan/tambah">
                                     <button style="float: right;" class="btn waves-effect waves-light btn-primary">
-                                        <i class="icofont icofont-plus"></i> Tambah Asset
+                                        <i class="icofont icofont-plus"></i> Tambah Usulan
                                     </button>
                                 </a>
+                                <?php } ?>
                                 <span></span>
                             </div>
                             <div class="card-block">
@@ -32,10 +34,11 @@
                                                 <th>Nama</th>
                                                 <th>Merk</th>
                                                 <th>Type</th>
-                                                <th>Jumlah</th>
-                                                <th>Satuan</th>
                                                 <th>Deskripsi</th>
+                                                <th>Status</th>
+                                                <?php if ($this->session->userdata('role') == '0') { ?>
                                                 <th>Pilihan</th>
+                                                <?php } ?>
                                             </tr>
                                         </thead>
                                     </table>
@@ -69,7 +72,7 @@ $(document).ready(function() {
         "serverSide": true,
         "order": [],
         "ajax": {
-            "url": "<?php echo site_url('assets/list_assets'); ?>",
+            "url": "<?php echo site_url('usulan/list_usulan'); ?>",
             "type": "POST",
             "data": {
                 "from": "assets",
@@ -96,7 +99,7 @@ function buttonDelete(id) {
         confirmButtonText: 'Yes!'
     }).then((result) => {
         if (result.isConfirmed) {
-            document.location.href = "<?= base_url(); ?>assets/hapus/" + id;
+            document.location.href = "<?= base_url(); ?>usulan/hapus/" + id;
         }
     })
 }

@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <h4 align="center">LAPORAN BARANG (<?= strtoupper($tgl); ?>)</h4>'
+    <h4 align="center">LAPORAN BARANG <br> (<?= strtoupper($tgl).'-'.strtoupper($tgl1); ?>)</h4>'
     <table width="100%">
         <thead>
             <tr>

@@ -9,6 +9,9 @@ class Dashboard extends CI_Controller
 		if ($this->session->userdata('pn_asset98371') != TRUE) {
 			redirect('auth');
 		}
+		$this->load->model('M_dashboard');
+		$this->load->model('M_ruangan');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -31,6 +34,14 @@ class Dashboard extends CI_Controller
 			$this->db->where('id_user_request', $this->session->userdata('id'));
 			$data['jml_ditolak'] = $this->db->count_all_results('transaksi');
 		}
+		$data['ruangan'] = $this->M_ruangan->getAllData();
+		$data['grafik_total']=$this->M_dashboard->grafik_total();
 		$this->template->load('template', 'dashboard', $data);
+	}
+
+	public function grafik()
+	{
+		$data = $this->M_dashboard->grafik_total();
+		echo json_encode($data);
 	}
 }

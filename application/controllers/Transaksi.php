@@ -51,6 +51,7 @@ class Transaksi extends CI_Controller
 	{
 
 		$data['tgl'] = $this->input->post('tgl');
+		$data['tgl1'] = $this->input->post('tgl1');
 		// $this->session->set_userdata('tgl', $tgl);
 		// $tgl = $this->session->userdata('tgl');
 		$mpdf = new \Mpdf\Mpdf([
